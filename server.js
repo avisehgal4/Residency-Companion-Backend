@@ -16,6 +16,14 @@ const razorpay = new Razorpay({
   key_secret: 'Y1woUmZcVwJwq8QphKcNfLDm' // Replace with your secret key
 });
 
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    status: 'ok', 
+    timestamp: new Date().toISOString(),
+    razorpay_configured: true
+  });
+});
+
 // Create order endpoint
 app.post('/api/create-order', async (req, res) => {
   try {
